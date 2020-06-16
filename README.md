@@ -1,5 +1,6 @@
 ![Sorbet](https://user-images.githubusercontent.com/2643026/84757714-60be0600-afbc-11ea-8c0e-7da839ea1712.png)
 
+![Continuous Integration](https://github.com/tricycle/sorbet-struct-comparable/workflows/Continuous%20Integration/badge.svg)
 # Making T::Struct's comparable since 2020
 
 If you just want some simple equality checking on your `T::Struct`'s then you've come to the right place.
