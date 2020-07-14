@@ -8,7 +8,7 @@ module T
       include ::Comparable
 
       LESS_THAN_OTHER = -1
-      EQUAL = 0
+      EQUAL = T.let(0, Integer)
 
       sig { params(other: Object).returns(Integer) }
       def <=>(other)
@@ -24,11 +24,11 @@ module T
           # https://github.com/dry-rb/dry-monads/issues/126
           result =
             if left.is_a? Dry::Monads::Maybe
-              left.bind do |x|
+              T.cast(left.bind do |x|
                 right.bind { |y| Dry::Monads::Some(x <=> y) }.or(Dry::Monads::Some(1))
               end.value_or do
                 right.bind { Dry::Monads::Some(-1) }.value_or(0)
-              end
+              end, Integer)
             else
               T.cast(left <=> right, Integer)
             end
