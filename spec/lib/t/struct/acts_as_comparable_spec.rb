@@ -66,6 +66,47 @@ module T
           it { is_expected.to eq person_b }
         end
       end
+
+      describe '#<=>' do
+        context 'when struct contains Maybes' do
+          let(:klass) { SorbetStructComparable::Examples::StructWithMaybes }
+          context 'when only left has None' do
+            let(:left) { klass.new(elem: Dry::Monads::None()) }
+            let(:right) { klass.new(elem: Dry::Monads::Some(3)) }
+
+            specify do
+              expect(left <=> right).to be(-1)
+            end
+          end
+
+          context 'when only right has None' do
+            let(:left) { klass.new(elem: Dry::Monads::Some(3)) }
+            let(:right) { klass.new(elem: Dry::Monads::None()) }
+
+            specify do
+              expect(left <=> right).to be 1
+            end
+          end
+
+          context 'when both have None' do
+            let(:left) { klass.new(elem: Dry::Monads::None()) }
+            let(:right) { klass.new(elem: Dry::Monads::None()) }
+
+            specify do
+              expect(left <=> right).to be 0
+            end
+          end
+
+          context 'when both have Some' do
+            let(:left) { klass.new(elem: Dry::Monads::Some(3)) }
+            let(:right) { klass.new(elem: Dry::Monads::Some(4)) }
+
+            specify do
+              expect(left <=> right).to be(-1)
+            end
+          end
+        end
+      end
     end
   end
 end

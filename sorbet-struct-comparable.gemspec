@@ -23,6 +23,8 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'dry-monads', '~> 1.3'
+  spec.add_dependency 'dry-monads-sorbet', '~> 1.1.4'
   spec.add_dependency 'sorbet-runtime', '>= 0.5'
 
   spec.add_development_dependency 'bundler', '>= 1.13'

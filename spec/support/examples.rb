@@ -27,5 +27,11 @@ module SorbetStructComparable
       const :age, Integer
       const :interests, Interests
     end
+
+    class StructWithMaybes < T::Struct
+      include ::T::Struct::ActsAsComparable
+
+      const :elem, Dry::Monads::Maybe[Integer]
+    end
   end
 end
