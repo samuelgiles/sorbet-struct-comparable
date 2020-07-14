@@ -65,6 +65,21 @@ module T
 
           it { is_expected.to eq person_b }
         end
+
+        context 'when presented with structs that are incomparable' do
+          let(:person_a) do
+            SorbetStructComparable::Examples::Incomparable.new(
+              my_incomparable_attribute: BigDecimal(22)
+            )
+          end
+          let(:person_b) do
+            SorbetStructComparable::Examples::Incomparable.new(
+              my_incomparable_attribute: ['Hello']
+            )
+          end
+
+          it { is_expected.not_to eq person_b }
+        end
       end
     end
   end
