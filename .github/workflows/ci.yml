@@ -16,7 +16,7 @@
           run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
           id: extract_branch
         - name: Set up Ruby
-          uses: actions/setup-ruby@v1
+          uses: ruby/setup-ruby@v1
           with:
             ruby-version: 2.6.6
             bundler-cache: false
