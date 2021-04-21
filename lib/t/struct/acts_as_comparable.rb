@@ -7,24 +7,19 @@ module T
       extend T::Sig
       include ::Comparable
 
-      LESS_THAN_OTHER = -1
       EQUAL = 0
+      NOT_COMPARABLE = nil
 
-      sig { params(other: Object).returns(Integer) }
+      sig { params(other: Object).returns(T.nilable(Integer)) }
       def <=>(other)
-        result = EQUAL
-        return LESS_THAN_OTHER if other.class != T.unsafe(self).class
+        return NOT_COMPARABLE if other.class != T.unsafe(self).class
 
-        T.unsafe(self).class.decorator.props.keys.map do |attribute_key|
+        T.unsafe(self).class.decorator.props.keys.each do |attribute_key|
           compare_result = T.unsafe(self).send(attribute_key) <=> other.send(attribute_key)
-          result = if compare_result.nil?
-                    LESS_THAN_OTHER
-                   else
-                     T.cast(compare_result, Integer)
-                   end
-          break if result != EQUAL
+          return T.cast(compare_result, T.nilable(Integer)) if compare_result != EQUAL
         end
-        result
+
+        return EQUAL
       end
     end
   end
