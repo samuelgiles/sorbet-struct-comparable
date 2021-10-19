@@ -4,19 +4,14 @@ source 'https://rubygems.org'
 gemspec
 
 group :development, :test do
-  gem 'rake', '~> 12.0'
-  gem 'rspec', '~> 3.0'
+  gem 'rake'
+  gem 'rspec'
   gem 'pry-byebug'
   gem 'sorbet'
   gem 'sorbet-runtime'
-end
-
-group :development do
-  gem 'spring'
-  gem 'spring-watcher-listen'
+  gem 'tapioca'
 end
 
 group :test do
   gem 'simplecov'
-  gem 'spring-commands-rspec'
 end
