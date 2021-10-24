@@ -149,6 +149,40 @@ module T
           it { is_expected.not_to eq person_b }
         end
       end
+
+      describe '#hash' do
+        let(:struct_a) do
+          SorbetStructComparable::Examples::Interest.new(
+            topic: SorbetStructComparable::Examples::Interest::Topic::Walking,
+            rating: 10
+          )
+        end
+        let(:struct_b) do
+          SorbetStructComparable::Examples::Interest.new(
+            topic: SorbetStructComparable::Examples::Interest::Topic::Walking,
+            rating: 10
+          )
+        end
+
+        context 'two equal structs' do
+          it 'should produce the same hash' do
+            expect(struct_a.hash).to eq(struct_b.hash)
+          end
+        end
+
+        context 'two different structs' do
+          let(:struct_b) do
+            SorbetStructComparable::Examples::Interest.new(
+              topic: SorbetStructComparable::Examples::Interest::Topic::Walking,
+              rating: 11
+            )
+          end
+
+          it 'should produce different hash results' do
+            expect(struct_a.hash).to_not eq(struct_b.hash)
+          end
+        end
+      end
     end
   end
 end

@@ -21,6 +21,11 @@ module T
 
         return EQUAL
       end
+
+      sig { returns(Integer) }
+      def hash
+        T.unsafe(self).class.decorator.props.keys.map { |attribute_key| T.unsafe(self).send(attribute_key).hash }.hash
+      end
     end
   end
 end
