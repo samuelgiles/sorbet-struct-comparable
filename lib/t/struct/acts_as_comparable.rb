@@ -22,6 +22,11 @@ module T
         return EQUAL
       end
 
+      sig { params(other: Object).returns(T::Boolean) }
+      def eql?(other)
+        self == other
+      end
+
       sig { returns(Integer) }
       def hash
         T.unsafe(self).class.decorator.props.keys.map { |attribute_key| T.unsafe(self).send(attribute_key).hash }.hash
