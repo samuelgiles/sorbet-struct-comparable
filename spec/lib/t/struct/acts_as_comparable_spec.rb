@@ -183,6 +183,48 @@ module T
           end
         end
       end
+
+      describe '#eql?' do
+        let(:struct_a) do
+          SorbetStructComparable::Examples::Interest.new(
+            topic: SorbetStructComparable::Examples::Interest::Topic::Walking,
+            rating: 10
+          )
+        end
+        let(:struct_b) do
+          SorbetStructComparable::Examples::Interest.new(
+            topic: SorbetStructComparable::Examples::Interest::Topic::Walking,
+            rating: 10
+          )
+        end
+
+        context 'two equal structs' do
+          it 'should be equal' do
+            expect(struct_a.eql?(struct_b)).to eq true
+          end
+
+          it 'should dedupe in an array using uniq' do
+            expect([struct_a, struct_b].uniq).to match_array([struct_a])
+          end
+        end
+
+        context 'two different structs' do
+          let(:struct_b) do
+            SorbetStructComparable::Examples::Interest.new(
+              topic: SorbetStructComparable::Examples::Interest::Topic::Walking,
+              rating: 11
+            )
+          end
+
+          it 'should not be equal' do
+            expect(struct_a.eql?(struct_b)).to eq false
+          end
+
+          it 'should not dedupe in an array using uniq' do
+            expect([struct_a, struct_b].uniq).to match_array([struct_a, struct_b])
+          end
+        end
+      end
     end
   end
 end
