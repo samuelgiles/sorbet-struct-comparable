@@ -1,3 +1,5 @@
+**N.B. The Bellroy technology team are transitioning away from Ruby as their primary programming language, and will not longer actively update this repository. Contact us if you'd like to take over as the primary maintainer.**
+
 ![Sorbet](https://user-images.githubusercontent.com/2643026/84757714-60be0600-afbc-11ea-8c0e-7da839ea1712.png)
 
 [![Gem Version](https://badge.fury.io/rb/sorbet-struct-comparable.svg)](https://badge.fury.io/rb/sorbet-struct-comparable) ![Continuous Integration](https://github.com/bellroy/sorbet-struct-comparable/workflows/Continuous%20Integration/badge.svg)
