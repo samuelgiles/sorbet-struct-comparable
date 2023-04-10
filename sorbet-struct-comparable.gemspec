@@ -3,11 +3,11 @@ require_relative 'lib/sorbet-struct-comparable/version'
 Gem::Specification.new do |spec|
   spec.name          = 'sorbet-struct-comparable'
   spec.version       = SorbetStructComparable::VERSION
-  spec.authors       = ['Bellroy Tech Team']
+  spec.authors       = ['Samuel Giles', 'Bellroy Tech Team']
   spec.email         = ['michael.webb@bellroy.com', 'sam@samuelgil.es']
 
   spec.summary       = "Comparable T::Struct's for the equality focused typed Ruby developer."
-  spec.homepage      = 'https://github.com/bellroy/sorbet-struct-comparable'
+  spec.homepage      = 'https://github.com/samuelgiles/sorbet-struct-comparable'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.0.0')
 
   spec.metadata['homepage_uri'] = spec.homepage

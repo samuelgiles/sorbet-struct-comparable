@@ -14,4 +14,5 @@ end
 
 group :test do
   gem 'simplecov'
+  gem "rspec-github", require: false
 end
