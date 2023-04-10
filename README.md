@@ -1,6 +1,6 @@
 ![Sorbet](https://user-images.githubusercontent.com/2643026/84757714-60be0600-afbc-11ea-8c0e-7da839ea1712.png)
 
-[![Gem Version](https://badge.fury.io/rb/sorbet-struct-comparable.svg)](https://badge.fury.io/rb/sorbet-struct-comparable) ![Continuous Integration](https://github.com/bellroy/sorbet-struct-comparable/workflows/Continuous%20Integration/badge.svg)
+[![Gem Version](https://badge.fury.io/rb/sorbet-struct-comparable.svg)](https://badge.fury.io/rb/sorbet-struct-comparable) ![Continuous Integration](https://github.com/samuelgiles/sorbet-struct-comparable/workflows/Continuous%20Integration/badge.svg)
 # Making T::Struct's comparable since 2020
 
 If you just want some simple equality checking on your `T::Struct`'s then you've come to the right place.
@@ -67,4 +67,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/bellroy/sorbet-struct-comparable.
+Bug reports and pull requests are welcome on GitHub at https://github.com/samuelgiles/sorbet-struct-comparable.
